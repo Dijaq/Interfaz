@@ -5,16 +5,28 @@
  */
 package Interfaz;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import pandosql_interfaz.PandoSQL_Funciones;
+
 /**
  *
  * @author diego
  */
 public class PandoSQL extends javax.swing.JFrame {
 
+    private File file;
+    PandoSQL_Funciones Pando = new PandoSQL_Funciones();
     /**
      * Creates new form PandoSQL
      */
     public PandoSQL() {
+       // this.file= file;
+        setVisible(true);
         initComponents();
     }
 
@@ -65,6 +77,7 @@ public class PandoSQL extends javax.swing.JFrame {
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Crear_Table.png"))); // NOI18N
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Ejecutar.png"))); // NOI18N
+        jButton4.setSelected(true);
 
         jTabbedPane1.addTab("Query", jTabbedPane2);
 
@@ -73,15 +86,30 @@ public class PandoSQL extends javax.swing.JFrame {
         jMenu1.setText("File");
 
         jMenuItem1.setText("Open");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem1);
 
         jMenuItem2.setText("Save");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem2);
 
         jMenuItem3.setText("Save AS");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem3);
 
-        jMenuItem4.setText("jMenuItem4");
+        jMenuItem4.setText("Exit");
         jMenu1.add(jMenuItem4);
 
         jMenuBar1.add(jMenu1);
@@ -160,6 +188,20 @@ public class PandoSQL extends javax.swing.JFrame {
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+       Pando.abrir();
+        
+      //  buscar.setEnabled(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        Pando.guardar();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        Pando.guardar();
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments

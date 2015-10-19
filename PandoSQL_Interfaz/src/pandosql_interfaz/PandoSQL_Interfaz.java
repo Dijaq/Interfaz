@@ -5,6 +5,8 @@
  */
 package pandosql_interfaz;
 
+import Interfaz.PandoSQL;
+
 /**
  *
  * @author diego
@@ -15,6 +17,7 @@ public class PandoSQL_Interfaz {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        PandoSQL Interfaz = new PandoSQL();
         // TODO code application logic here
     }
     
